@@ -4,5 +4,5 @@
   "use_pytest": "y",
   "use_click": "y",
   "minimum_python_version": "3.8",
-  "_extensions": ["jinja2_time.TimeExtension"]
+  "entry_point": "{{ cookiecutter.package_name | replace('_', '-') }}"
 }

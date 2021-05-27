@@ -1,5 +1,20 @@
-from .{{ cookiecutter.package_name }} import main
+import logging
+{% if cookiecutter.use_click == 'y' -%}
+import click
+{% endif -%}
 
 
-if __name__ == '__main__':
-    main()
+logger = logging.getLogger(__name__)
+
+{% raw -%}
+LOG_FORMAT = '[%(asctime)s] %(levelname).4s {%(name)s:%(lineno)s} %(message)s'
+{%- endraw %}
+
+logging.basicConfig(format=LOG_FORMAT)
+
+
+{% if cookiecutter.use_click == 'y' -%}
+@click.command()
+{% endif -%}
+def main():
+    print('{{ cookiecutter.package_name }} application stub')

@@ -27,7 +27,7 @@ setup(
     install_requires=REQUIRES,
     include_package_data=True,
     entry_points={
-        'console_scripts': ['{{ cookiecutter.package_name }} = {{ cookiecutter.package_name }}.__main__:main']
+        'console_scripts': ['{{ cookiecutter.entry_point }} = {{ cookiecutter.package_name }}.__main__:main']
     },
     setup_requires=[{%- if cookiecutter.use_pytest == 'y' -%}'pytest-runner',{% endif %}],
     tests_require=[{%- if cookiecutter.use_pytest == 'y' -%}'pytest',{% endif %}],
