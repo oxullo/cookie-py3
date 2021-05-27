@@ -10,11 +10,14 @@ logger = logging.getLogger(__name__)
 LOG_FORMAT = '[%(asctime)s] %(levelname).4s {%(name)s:%(lineno)s} %(message)s'
 {%- endraw %}
 
-logging.basicConfig(format=LOG_FORMAT)
-
 
 {% if cookiecutter.use_click == 'y' -%}
 @click.command()
 {% endif -%}
 def main():
-    print('{{ cookiecutter.package_name }} application stub')
+    logging.basicConfig(format=LOG_FORMAT, level=logging.INFO)
+    logger.info('{{ cookiecutter.package_name }} application stub')
+
+
+if __name__ == '__main__':
+    main()
