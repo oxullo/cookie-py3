@@ -1,4 +1,5 @@
 import os
+import shutil
 
 PROJECT_DIRECTORY = os.path.realpath(os.path.curdir)
 
@@ -12,3 +13,4 @@ if __name__ == '__main__':
         remove_file('tests/__init__.py')
     else:
         remove_file('setup.cfg')
+        shutil.rmtree(os.path.join(PROJECT_DIRECTORY, 'tests'))
